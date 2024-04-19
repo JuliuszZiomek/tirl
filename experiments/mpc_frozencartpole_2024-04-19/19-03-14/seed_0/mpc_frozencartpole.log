@@ -1,0 +1,19 @@
+[2024-04-19 19:03:20,305][root][INFO] - Dumper dumping to /trajectory-information-rl/experiments/mpc_frozencartpole_2024-04-19/19-03-14/seed_0
+[2024-04-19 19:03:20,309][root][INFO] - Start obs: None
+[2024-04-19 19:03:34,481][root][INFO] - GT Returns: [-10.24790897 -11.87757035 -11.31713569 -10.24089481  -9.90765556]
+[2024-04-19 19:03:34,481][root][INFO] - GT Returns: mean=-10.718 std=0.750
+[2024-04-19 19:03:34,481][root][INFO] - Path Lengths: [36345, 36345, 36345, 36345, 36345]
+[2024-04-19 19:03:34,481][root][INFO] - Path Lengths: mean=36345.000 std=0.000
+[2024-04-19 19:03:34,542][root][INFO] - all_x.shape = (181725, 5)
+[2024-04-19 19:03:34,547][root][INFO] - all_x.min(axis=0) = [-0.62056534 -0.97560098 -0.99998768 -0.81281866 -1.        ]
+[2024-04-19 19:03:34,551][root][INFO] - all_x.max(axis=0) = [0.90581487 1.41002332 0.99999809 0.86246854 1.        ]
+[2024-04-19 19:03:34,554][root][INFO] - all_x.mean(axis=0) = [ 0.00282874  0.0059397  -0.01027059 -0.02150061  0.00421483]
+[2024-04-19 19:03:34,561][root][INFO] - all_x.var(axis=0) = [0.00731634 0.03358889 0.23741111 0.07733473 0.22141558]
+[2024-04-19 19:03:34,596][root][INFO] - --------------- Start iteration i=0 ---------------
+[2024-04-19 19:03:34,596][root][INFO] - Length of data.x: 1
+[2024-04-19 19:03:34,596][root][INFO] - Length of data.y: 1
+[2024-04-19 19:03:39,979][root][INFO] - Eval Returns: [-24.99861507 -24.99335639 -24.99952133 -24.99868919 -24.99965898]
+[2024-04-19 19:03:39,984][root][INFO] - Eval Returns: mean=-24.998 std=0.002
+[2024-04-19 19:03:39,984][root][INFO] - Eval ndata: 1.000
+[2024-04-19 19:03:39,984][root][INFO] - Model MSE (current real MPC): 0.585
+[2024-04-19 19:03:40,046][root][INFO] - *[TIME] [Evaluate the current MPC policy] Elapsed: 5.26 seconds

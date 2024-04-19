@@ -21,6 +21,7 @@ _plotters = {
     "bacpendulum-medium-v0": plot_pendulum,
     "petscartpole-v0": plot_cartpole,
     "pilcocartpole-v0": plot_pilco_cartpole,
+    "frozencartpole-v0": plot_pilco_cartpole,
     "bacrobot-v0": plot_acrobot,
     "bacswimmer-v0": plot_generic,
     "bacreacher-v0": plot_generic,
