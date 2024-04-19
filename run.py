@@ -3,6 +3,7 @@ Main File for BARL and associated code.
 """
 from argparse import Namespace
 import logging
+import pickle
 import numpy as np
 import gym
 from tqdm import trange
@@ -136,6 +137,11 @@ def main(config):
 
     # Set initial data
     data = get_initial_data(config, env, f, domain, dumper, plot_fn)
+
+    if config.load_initial_data is not None:
+        loaded_data = pickle.load(open(config.load_initial_data, 'rb'))
+        data.x += loaded_data.x
+        data.y += loaded_data.y
 
     # Make a test set for model evalution separate from the controller
     test_data = Namespace()
@@ -326,6 +332,7 @@ def main(config):
         # Dumper save
         dumper.save()
         plt.close("all")
+        pickle.dump(data, open(hydra.core.hydra_config.HydraConfig.get().runtime.output_dir, "wb"))
 
 
 def configure(config):
