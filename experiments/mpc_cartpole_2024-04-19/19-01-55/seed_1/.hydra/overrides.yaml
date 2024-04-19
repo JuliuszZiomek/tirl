@@ -1,0 +1,6 @@
+- name=mpc_cartpole
+- alg=mpc
+- num_iters=5
+- eval_frequency=10
+- env=cartpole
+- seed=1
