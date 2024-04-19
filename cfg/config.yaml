@@ -79,6 +79,7 @@ gp_fit_retries: 20
 fit_hypers: False
 eval_gp_hypers: False
 save_figures: False
+load_initial_data: False
 hydra:
   job:
     name: ${name}
