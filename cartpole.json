@@ -1,0 +1,5 @@
+{
+    "cartpole": "/trajectory-information-rl/experiments/mpc_cartpole_2024-04-19/19-47-30",
+    "frozen_cartpole": "/trajectory-information-rl/experiments/mpc_frozencartpole_2024-04-19/23-07-13",
+    "frozen_cartpole_initdata": "/trajectory-information-rl/experiments/mpc_frozencartpole_initdata_2024-04-22/14-20-38"
+}
