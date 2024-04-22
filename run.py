@@ -839,6 +839,7 @@ def evaluate_mpc(
         algo.initialize()
 
         postmean_fn = make_postmean_fn(model, use_tf=config.alg.gd_opt)
+        postmeanstd_fn = make_postmean_fn(model, use_tf=config.alg.gd_opt, return_std=True)
         if config.eval_bayes_policy:
             model.initialize_function_sample_list(config.test_mpc.num_fs)
             policy_params = dict(
@@ -885,7 +886,9 @@ def evaluate_mpc(
             ]
             real_obs_np = np.array(real_obs)
             real_path_mpc.y = list(real_obs_np[1:, ...] - real_obs_np[:-1, ...])
-            real_path_mpc.y_hat = postmean_fn(real_path_mpc.x)
+            real_path_mpc.y_hat, real_path_mpc.y_std = postmeanstd_fn(real_path_mpc.x)
+            real_path_mpc.z = (np.array(real_path_mpc.y) - np.array(real_path_mpc.y_hat)) / np.array(real_path_mpc.y_std)
+            real_path_mpc.anomaly = np.abs(real_path_mpc.z) > 1.96
             mses.append(mse(real_path_mpc.y, real_path_mpc.y_hat))
             stats = {
                 "Mean Return": np.mean(real_returns),

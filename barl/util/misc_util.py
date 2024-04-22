@@ -109,11 +109,15 @@ def batch_function(f):
     return batched_f
 
 
-def make_postmean_fn(model, use_tf=False):
+def make_postmean_fn(model, use_tf=False, return_std=False):
     def postmean_fn(x):
         mu_list, std_list = model.get_post_mu_cov(x, full_cov=False)
         mu_list = np.array(mu_list)
         mu_tup_for_x = list(zip(*mu_list))
+        std_list = np.array(std_list)
+        std_tup_for_x = list(zip(*std_list))
+        if return_std:
+            return mu_tup_for_x, std_tup_for_x
         return mu_tup_for_x
 
     if not use_tf:
@@ -123,6 +127,9 @@ def make_postmean_fn(model, use_tf=False):
         x = tf.convert_to_tensor(x, dtype=tf.float32)
         mu_list, std_list = model.get_post_mu_cov(x, full_cov=False)
         mu_tup_for_x = list(mu_list.numpy())
+        std_tup_for_x = list(std_list.numpy())
+        if return_std:
+            return mu_tup_for_x, std_tup_for_x
         return mu_tup_for_x
 
     return tf_postmean_fn
