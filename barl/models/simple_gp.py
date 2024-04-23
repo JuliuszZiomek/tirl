@@ -8,6 +8,7 @@ import collections.abc
 import numpy as np
 import tensorflow as tf
 
+from scipy.linalg import cho_solve
 from .gp.gp_utils import (
     kern_exp_quad_ard,
     tf_kern_exp_quad_ard,
@@ -179,6 +180,24 @@ class SimpleGp(Base):
 
         # Return mean and cov matrix (or std-dev array if full_cov=False)
         return mu2, k2
+    
+    def get_post_std_w_point_removed(self, x_list, ix_to_remove):
+
+        k = self.params.kernel(x_list, self.data.x, self.params.ls, self.params.alpha).T
+        v = cho_solve((self.lmat, True), k)
+
+        y_var = self.params.kernel(x_list, x_list, self.params.ls, self.params.alpha)
+        y_var -= k.T @ v
+
+        one_hot = np.zeros((len(self.data.x), 1))
+        one_hot[ix_to_remove] = 1.0
+        delta_tt = one_hot.T @ cho_solve((self.lmat, True), one_hot)
+
+        y_var = np.diag(y_var) + (v[ix_to_remove, :].reshape(-1)) ** 2 / delta_tt.item()
+        
+        y_var = y_var.reshape(-1)
+
+        return y_var**0.5
 
     def gp_post_wrapper(self, x_list, data, full_cov=True):
         """Wrapper for gp_post given a list of x and data Namespace."""

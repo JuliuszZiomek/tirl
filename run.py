@@ -17,6 +17,7 @@ import random
 from matplotlib import pyplot as plt
 import gpflow.config
 from sklearn.metrics import explained_variance_score
+from itertools import compress
 
 from barl.models.gpfs_gp import BatchMultiGpfsGp, TFMultiGpfsGp
 from barl.models.gpflow_gp import get_gpflow_hypers_from_data
@@ -302,6 +303,18 @@ def main(config):
             y_next = next_obs - current_obs
         x_next = np.array(x_next).astype(np.float64)
         y_next = np.array(y_next).astype(np.float64)
+
+        if config.gp_forgetting:
+            harmful_points_per_model = []
+            for model_ix in range(real_paths_mpc[0].anomaly.shape[1]):
+                harmful_points = []
+                for real_path in real_paths_mpc:
+                    harmful_points += list(compress(real_path.x, real_path.anomaly[:,model_ix]))
+                    
+                harmful_points_per_model.append(
+                    harmful_points
+                )
+            forget(gp_model_class, gp_model_params, data, harmful_points_per_model, config.forgetting_gamma, config.forgetting_eta)
 
         data.x.append(x_next)
         data.y.append(y_next)
@@ -1000,6 +1013,53 @@ def make_plots(
         )
         neatplot.save_figure(str(dumper.expdir / f"samp_{i}"), "png", fig=fig_samp)
         neatplot.save_figure(str(dumper.expdir / f"obs_{i}"), "png", fig=fig_obs)
+
+def forget(gp_model_class, gp_model_params, data, harmful_points_per_model, gamma, eta):
+    for model_ix, harmful_points in enumerate(harmful_points_per_model):
+        if len(harmful_points) == 0:
+            continue
+        gp = gp_model_class(gp_model_params, data)
+        gtmax = get_gmax(gp.gpfsgp_list[model_ix], harmful_points, eta)
+        curr_gmax = gtmax
+        removed = []
+
+        while curr_gmax > gamma * gtmax:
+            gp = gp_model_class(gp_model_params, data)
+            max_gt = - float("inf")
+            best_point_ix = None
+            points = {i for i in range(len(data.x))}
+            for point_ix in points:
+                gt = get_gt(gp.gpfsgp_list[model_ix], harmful_points, point_ix, eta)
+                
+                if gt > max_gt:
+                    max_gt = gt
+                    best_point_ix = point_ix
+
+            removed.append(best_point_ix)
+            data.x.pop(best_point_ix)
+            data.y.pop(best_point_ix)
+            curr_gmax = curr_gmax - max_gt
+
+            if len(points) == 1:
+                print("No more points left to remove!")
+                break
+        
+    return removed
+
+def get_gmax( gp, harmful_points, eta):
+    mean, std =  gp.get_post_mu_cov(harmful_points, full_cov=False)
+
+    mu_zero, std_zero = gp.get_prior_mu_cov(harmful_points, full_cov=False)
+
+    return np.sum(np.clip( std_zero**2 - std**2 - eta, a_min=0.0, a_max=None))
+
+def get_gt(gp, harmful_points, point_ix, eta):
+    mu, std =  gp.get_post_mu_cov(harmful_points, full_cov=False)
+    std_removed =  gp.get_post_std_w_point_removed(harmful_points, point_ix)
+
+    mu_zero, std_zero = gp.get_prior_mu_cov(harmful_points, full_cov=False)
+
+    return np.sum(np.minimum( std_removed**2, std_zero**2 - eta) - np.minimum( std**2, std_zero**2 - eta))
 
 
 if __name__ == "__main__":

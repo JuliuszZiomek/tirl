@@ -350,6 +350,18 @@ class MultiGpfsGp(Base):
             gpfsgp.call_function_sample_list_mean(x) for gpfsgp in self.gpfsgp_list
         ]
         return y_vec
+    
+    def get_prior_mu_cov(self, x_list, full_cov=False):
+        # TODO: make this handle full covariances well
+        """Returns a list of mu, and a list of cov/std."""
+        mu_list, cov_list = [], []
+        for gpfsgp in self.gpfsgp_list:
+            # Call usual 1d gpfsgp gp_post_wrapper
+            mu, cov = gpfsgp.get_prior_mu_cov(x_list, full_cov)
+            mu_list.append(mu)
+            cov_list.append(cov)
+
+        return mu_list, cov_list
 
     def get_post_mu_cov(self, x_list, full_cov=False):
         # TODO: make this handle full covariances well
