@@ -1,0 +1,207 @@
+[2024-04-23 22:20:01,230][root][INFO] - Dumper dumping to /tirl/experiments/mpc_frozencartpole_initdata_gpforgetting_2024-04-23/22-19-45/seed_0
+[2024-04-23 22:20:01,245][root][INFO] - Start obs: None
+[2024-04-23 22:20:26,658][root][INFO] - GT Returns: [-12.10581501 -11.42456576 -10.09318749 -10.80879527 -10.63937244]
+[2024-04-23 22:20:26,659][root][INFO] - GT Returns: mean=-11.014 std=0.692
+[2024-04-23 22:20:26,659][root][INFO] - Path Lengths: [36345, 36345, 36345, 36345, 36345]
+[2024-04-23 22:20:26,659][root][INFO] - Path Lengths: mean=36345.000 std=0.000
+[2024-04-23 22:20:26,715][root][INFO] - all_x.shape = (181725, 5)
+[2024-04-23 22:20:26,720][root][INFO] - all_x.min(axis=0) = [-0.58978011 -0.85621391 -0.99998577 -0.80356722 -1.        ]
+[2024-04-23 22:20:26,730][root][INFO] - all_x.max(axis=0) = [0.97045249 1.39324432 0.999986   0.85061864 1.        ]
+[2024-04-23 22:20:26,738][root][INFO] - all_x.mean(axis=0) = [-0.01158976 -0.00599207  0.01936546  0.04907745  0.00429266]
+[2024-04-23 22:20:26,748][root][INFO] - all_x.var(axis=0) = [0.00635756 0.02991952 0.23988506 0.07500831 0.23671228]
+[2024-04-23 22:20:26,785][root][INFO] - --------------- Start iteration i=0 ---------------
+[2024-04-23 22:20:26,785][root][INFO] - Length of data.x: 301
+[2024-04-23 22:20:26,785][root][INFO] - Length of data.y: 301
+[2024-04-23 22:20:59,488][root][INFO] - Eval Returns: [-10.6267613  -12.79474196 -18.41177126 -17.68881884 -17.80454381]
+[2024-04-23 22:20:59,494][root][INFO] - Eval Returns: mean=-15.465 std=3.151
+[2024-04-23 22:20:59,494][root][INFO] - Eval ndata: 301.000
+[2024-04-23 22:20:59,494][root][INFO] - Model MSE (current real MPC): 0.385
+[2024-04-23 22:21:00,845][root][INFO] - Model MSE (random test set): 0.003
+[2024-04-23 22:21:00,846][root][INFO] - Model MSE (GT MPC): 0.001
+[2024-04-23 22:21:00,846][root][INFO] - Model Likelihood (random test set): -3.734
+[2024-04-23 22:21:00,846][root][INFO] - Model Likelihood (GT MPC): -3.811
+[2024-04-23 22:21:00,846][root][INFO] - *[TIME] [Evaluate the current MPC policy] Elapsed: 26.22 seconds
+[2024-04-23 22:23:14,949][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:14,951][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:14,951][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:14,953][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:14,955][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:14,956][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:14,958][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:14,959][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:14,999][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,006][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,007][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,008][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,008][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,009][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,010][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,010][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,012][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,013][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,014][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,015][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,016][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,017][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,018][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,023][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,025][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,026][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,026][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,027][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,028][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,029][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,038][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,059][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,060][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,061][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,062][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,063][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,064][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,065][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,065][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,069][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,076][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,077][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,077][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,078][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,079][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,080][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,080][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,082][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,083][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,084][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,085][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,086][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,087][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,088][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,094][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,095][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,096][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,097][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,098][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,099][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,100][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,106][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,124][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,124][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,125][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,126][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,126][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,127][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,128][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,129][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,132][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,139][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,139][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,140][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,141][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,141][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,142][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,143][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,144][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,145][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,146][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,147][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,148][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,149][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,150][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,156][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,157][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,158][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,159][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,160][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,161][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,162][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,165][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,183][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,184][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,185][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,185][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,186][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,187][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,188][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,188][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,192][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,199][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,199][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,200][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,201][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,202][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,203][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,203][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,204][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,206][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,207][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,208][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,209][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,210][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,211][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,217][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,218][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,219][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,220][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,221][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,222][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,223][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:15,227][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,220][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,222][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,225][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,227][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,228][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,229][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,230][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,235][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,236][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,238][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,239][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,240][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,241][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,242][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,246][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,820][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,821][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,822][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,823][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,824][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,825][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,826][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,831][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,832][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,833][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,834][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,835][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,836][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,837][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:16,840][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,527][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,528][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,529][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,530][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,531][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,532][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,533][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,538][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,539][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,540][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,541][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,542][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,543][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,544][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:17,550][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,174][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,176][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,178][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,180][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,182][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,184][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,185][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,190][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,191][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,192][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,193][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,194][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,195][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,196][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.
+[2024-04-23 22:23:20,205][matplotlib.font_manager][WARNING] - findfont: Font family 'Times' not found.

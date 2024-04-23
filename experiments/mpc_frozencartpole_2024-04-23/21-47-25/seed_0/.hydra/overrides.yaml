@@ -1,0 +1,7 @@
+- name=mpc_frozencartpole
+- alg=mpc
+- num_iters=300
+- eval_frequency=10
+- env=frozencartpole
+- seed=0
+- fit_hypers=True

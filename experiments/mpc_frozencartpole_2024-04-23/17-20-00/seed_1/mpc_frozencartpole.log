@@ -1,0 +1,23 @@
+[2024-04-23 17:20:16,430][root][INFO] - Dumper dumping to /tirl/experiments/mpc_frozencartpole_2024-04-23/17-20-00/seed_1
+[2024-04-23 17:20:16,445][root][INFO] - Start obs: None
+[2024-04-23 17:20:43,667][root][INFO] - GT Returns: [-11.94638394 -10.5418538   -9.91841307 -10.99012271 -11.45270845]
+[2024-04-23 17:20:43,667][root][INFO] - GT Returns: mean=-10.970 std=0.704
+[2024-04-23 17:20:43,667][root][INFO] - Path Lengths: [36345, 36345, 36345, 36345, 36345]
+[2024-04-23 17:20:43,667][root][INFO] - Path Lengths: mean=36345.000 std=0.000
+[2024-04-23 17:20:43,725][root][INFO] - all_x.shape = (181725, 5)
+[2024-04-23 17:20:43,731][root][INFO] - all_x.min(axis=0) = [-0.53859229 -0.85398338 -0.99999415 -0.84983732 -1.        ]
+[2024-04-23 17:20:43,736][root][INFO] - all_x.max(axis=0) = [0.87840859 1.28260869 0.99994593 0.88208694 1.        ]
+[2024-04-23 17:20:43,739][root][INFO] - all_x.mean(axis=0) = [-0.00758279 -0.00667791  0.01911359  0.02401734 -0.01095522]
+[2024-04-23 17:20:43,748][root][INFO] - all_x.var(axis=0) = [0.00679333 0.03090318 0.23635526 0.07539025 0.22751744]
+[2024-04-23 17:20:43,800][root][INFO] - --------------- Start iteration i=0 ---------------
+[2024-04-23 17:20:43,801][root][INFO] - Length of data.x: 301
+[2024-04-23 17:20:43,801][root][INFO] - Length of data.y: 301
+[2024-04-23 17:21:11,133][root][INFO] - Eval Returns: [-17.80395066 -17.47173761 -11.14656154 -17.10781376 -11.12409381]
+[2024-04-23 17:21:11,140][root][INFO] - Eval Returns: mean=-14.931 std=3.107
+[2024-04-23 17:21:11,140][root][INFO] - Eval ndata: 301.000
+[2024-04-23 17:21:11,141][root][INFO] - Model MSE (current real MPC): 0.321
+[2024-04-23 17:21:12,746][root][INFO] - Model MSE (random test set): 0.003
+[2024-04-23 17:21:12,747][root][INFO] - Model MSE (GT MPC): 0.001
+[2024-04-23 17:21:12,747][root][INFO] - Model Likelihood (random test set): -3.726
+[2024-04-23 17:21:12,748][root][INFO] - Model Likelihood (GT MPC): -3.790
+[2024-04-23 17:21:12,748][root][INFO] - *[TIME] [Evaluate the current MPC policy] Elapsed: 28.50 seconds

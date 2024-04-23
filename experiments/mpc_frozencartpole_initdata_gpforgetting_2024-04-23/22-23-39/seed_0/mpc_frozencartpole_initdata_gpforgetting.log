@@ -1,0 +1,23 @@
+[2024-04-23 22:23:54,513][root][INFO] - Dumper dumping to /tirl/experiments/mpc_frozencartpole_initdata_gpforgetting_2024-04-23/22-23-39/seed_0
+[2024-04-23 22:23:54,530][root][INFO] - Start obs: None
+[2024-04-23 22:24:20,767][root][INFO] - GT Returns: [-10.74051307 -12.07709563 -11.18165349 -10.63073661 -10.4262564 ]
+[2024-04-23 22:24:20,767][root][INFO] - GT Returns: mean=-11.011 std=0.587
+[2024-04-23 22:24:20,768][root][INFO] - Path Lengths: [36345, 36345, 36345, 36345, 36345]
+[2024-04-23 22:24:20,768][root][INFO] - Path Lengths: mean=36345.000 std=0.000
+[2024-04-23 22:24:20,826][root][INFO] - all_x.shape = (181725, 5)
+[2024-04-23 22:24:20,831][root][INFO] - all_x.min(axis=0) = [-0.56670998 -0.90239725 -0.99990731 -0.84918084 -1.        ]
+[2024-04-23 22:24:20,836][root][INFO] - all_x.max(axis=0) = [0.93250654 1.41731883 0.9999894  0.86690108 1.        ]
+[2024-04-23 22:24:20,839][root][INFO] - all_x.mean(axis=0) = [-0.0092274  -0.00648943  0.02440482  0.02966328  0.008095  ]
+[2024-04-23 22:24:20,847][root][INFO] - all_x.var(axis=0) = [0.00669726 0.02991859 0.23914886 0.07510948 0.22902284]
+[2024-04-23 22:24:20,887][root][INFO] - --------------- Start iteration i=0 ---------------
+[2024-04-23 22:24:20,887][root][INFO] - Length of data.x: 301
+[2024-04-23 22:24:20,887][root][INFO] - Length of data.y: 301
+[2024-04-23 22:24:46,607][root][INFO] - Eval Returns: [-16.86648352 -13.23018275 -20.10957269 -17.60096565 -13.54932993]
+[2024-04-23 22:24:46,615][root][INFO] - Eval Returns: mean=-16.271 std=2.589
+[2024-04-23 22:24:46,616][root][INFO] - Eval ndata: 301.000
+[2024-04-23 22:24:46,617][root][INFO] - Model MSE (current real MPC): 0.321
+[2024-04-23 22:24:48,064][root][INFO] - Model MSE (random test set): 0.003
+[2024-04-23 22:24:48,064][root][INFO] - Model MSE (GT MPC): 0.001
+[2024-04-23 22:24:48,065][root][INFO] - Model Likelihood (random test set): -3.734
+[2024-04-23 22:24:48,065][root][INFO] - Model Likelihood (GT MPC): -3.801
+[2024-04-23 22:24:48,065][root][INFO] - *[TIME] [Evaluate the current MPC policy] Elapsed: 26.74 seconds
