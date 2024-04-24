@@ -1,0 +1,6 @@
+- name=mpc_frozencartpole_newhypers_initdata_gpforgetting
+- alg=mpc
+- num_iters=300
+- eval_frequency=10
+- env=frozencartpole_newhypers
+- seed=3
