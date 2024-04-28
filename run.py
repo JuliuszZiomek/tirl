@@ -71,6 +71,7 @@ def main(config):
     #   Define and configure
     # ==============================================
     dumper = Dumper(config.name)
+    forgotten_points = []
     configure(config)
 
     # Instantiate environment and create functions for dynamics, plotting, rewards, state updates
@@ -188,6 +189,7 @@ def main(config):
     #   Optionally: fit GP hyperparameters (then exit)
     # ==============================================
     if config.fit_hypers or config.eval_gp_hypers:
+        pickle.dump(test_data, open(os.path.join(hydra.core.hydra_config.HydraConfig.get().runtime.output_dir, "test_data.p"), "wb"))
         fit_data = Namespace(
             x=test_mpc_data.x + test_data.x, y=test_mpc_data.y + test_data.y
         )
@@ -304,7 +306,7 @@ def main(config):
         x_next = np.array(x_next).astype(np.float64)
         y_next = np.array(y_next).astype(np.float64)
 
-        if config.gp_forgetting:
+        if config.gp_forgetting and len(forgotten_points) < config.max_points_removed:
             harmful_points_per_model = []
             for model_ix in range(real_paths_mpc[0].anomaly.shape[1]):
                 harmful_points = []
@@ -314,7 +316,10 @@ def main(config):
                 harmful_points_per_model.append(
                     harmful_points
                 )
-            forget(gp_model_class, gp_model_params, data, harmful_points_per_model, config.forgetting_gamma, config.forgetting_eta)
+            max_points = config.max_points_removed - len(forgotten_points)
+            max_points = min(config.max_removed_points_per_round, max_points)
+            new_forgotten_points = forget(gp_model_class, gp_model_params, data, harmful_points_per_model, config.forgetting_gamma, config.forgetting_eta, max_points=max_points)
+            forgotten_points += new_forgotten_points
 
         data.x.append(x_next)
         data.y.append(y_next)
@@ -901,7 +906,7 @@ def evaluate_mpc(
             real_path_mpc.y = list(real_obs_np[1:, ...] - real_obs_np[:-1, ...])
             real_path_mpc.y_hat, real_path_mpc.y_std = postmeanstd_fn(real_path_mpc.x)
             real_path_mpc.z = (np.array(real_path_mpc.y) - np.array(real_path_mpc.y_hat)) / np.array(real_path_mpc.y_std)
-            real_path_mpc.anomaly = np.abs(real_path_mpc.z) > 1.96
+            real_path_mpc.anomaly = np.abs(real_path_mpc.z) > config.anomaly_threshold
             mses.append(mse(real_path_mpc.y, real_path_mpc.y_hat))
             stats = {
                 "Mean Return": np.mean(real_returns),
@@ -1014,35 +1019,34 @@ def make_plots(
         neatplot.save_figure(str(dumper.expdir / f"samp_{i}"), "png", fig=fig_samp)
         neatplot.save_figure(str(dumper.expdir / f"obs_{i}"), "png", fig=fig_obs)
 
-def forget(gp_model_class, gp_model_params, data, harmful_points_per_model, gamma, eta):
+def forget(gp_model_class, gp_model_params, data, harmful_points_per_model, gamma, eta, max_points):
+    removed = []
     for model_ix, harmful_points in enumerate(harmful_points_per_model):
         if len(harmful_points) == 0:
             continue
         gp = gp_model_class(gp_model_params, data)
         gtmax = get_gmax(gp.gpfsgp_list[model_ix], harmful_points, eta)
         curr_gmax = gtmax
-        removed = []
 
         while curr_gmax > gamma * gtmax:
             gp = gp_model_class(gp_model_params, data)
             max_gt = - float("inf")
             best_point_ix = None
             points = {i for i in range(len(data.x))}
+            if len(points) == 1 or len(removed) >= max_points:
+                print(f"No more points left to remove! Final gmax {curr_gmax}, init gmax {gtmax}")
+                break
             for point_ix in points:
                 gt = get_gt(gp.gpfsgp_list[model_ix], harmful_points, point_ix, eta)
                 
                 if gt > max_gt:
                     max_gt = gt
                     best_point_ix = point_ix
-
+            
             removed.append(best_point_ix)
             data.x.pop(best_point_ix)
             data.y.pop(best_point_ix)
             curr_gmax = curr_gmax - max_gt
-
-            if len(points) == 1:
-                print("No more points left to remove!")
-                break
         
     return removed
 

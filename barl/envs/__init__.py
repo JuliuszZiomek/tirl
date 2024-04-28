@@ -8,6 +8,7 @@ from barl.envs.pilco_cartpole import (
 )
 
 from barl.envs.frozen_cartpole import FrozenCartpoleEnv
+from barl.envs.rusty_pendulum import RustyPendulumEnv
 
 from barl.envs.lava_path import LavaPathEnv, lava_path_reward, ShortLavaPathEnv
 from barl.envs.weird_gain import WeirdGainEnv, weird_gain_reward, WeirderGainEnv
@@ -16,6 +17,10 @@ from barl.envs.weird_gain import WeirdGainEnv, weird_gain_reward, WeirderGainEnv
 register(
     id="bacpendulum-v0",
     entry_point=PendulumEnv,
+)
+register(
+    id="rustypendulum-v0",
+    entry_point=RustyPendulumEnv,
 )
 register(
     id="pilcocartpole-v0",
@@ -43,6 +48,7 @@ register(
 )
 reward_functions = {
     "bacpendulum-v0": pendulum_reward,
+    "rustypendulum-v0": pendulum_reward,
     "pilcocartpole-v0": pilco_cartpole_reward,
     "frozencartpole-v0": pilco_cartpole_reward,
     "lavapath-v0": lava_path_reward,
