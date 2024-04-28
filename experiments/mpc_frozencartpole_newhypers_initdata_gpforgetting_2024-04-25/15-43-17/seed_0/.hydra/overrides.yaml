@@ -1,0 +1,10 @@
+- name=mpc_frozencartpole_newhypers_initdata_gpforgetting
+- alg=mpc
+- num_iters=300
+- eval_frequency=10
+- env=frozencartpole_newhypers
+- seed=0
+- load_initial_data=/tirl/experiments/mpc_cartpole_2024-04-22/15-54-05
+- gp_forgetting=True
+- max_points_removed=1000
+- max_removed_points_per_round=10

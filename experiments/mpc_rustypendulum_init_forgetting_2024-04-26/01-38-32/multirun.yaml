@@ -1,0 +1,297 @@
+hydra:
+  run:
+    dir: experiments/${name}_${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: experiments/${name}_${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: seed_${hydra.job.num}
+  launcher:
+    _target_: hydra_plugins.hydra_joblib_launcher.joblib_launcher.JoblibLauncher
+    n_jobs: -1
+    backend: null
+    prefer: processes
+    require: null
+    verbose: 0
+    timeout: null
+    pre_dispatch: 2*n_jobs
+    batch_size: auto
+    temp_folder: null
+    max_nbytes: null
+    mmap_mode: r
+  sweeper:
+    _target_: hydra._internal.core_plugins.basic_sweeper.BasicSweeper
+    max_batch_size: null
+    params: null
+  help:
+    app_name: ${hydra.job.name}
+    header: '${hydra.help.app_name} is powered by Hydra.
+
+      '
+    footer: 'Powered by Hydra (https://hydra.cc)
+
+      Use --hydra-help to view Hydra specific help
+
+      '
+    template: '${hydra.help.header}
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (group=option)
+
+
+      $APP_CONFIG_GROUPS
+
+
+      == Config ==
+
+      Override anything in the config (foo.bar=value)
+
+
+      $CONFIG
+
+
+      ${hydra.help.footer}
+
+      '
+  hydra_help:
+    template: 'Hydra (${hydra.runtime.version})
+
+      See https://hydra.cc for more info.
+
+
+      == Flags ==
+
+      $FLAGS_HELP
+
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (For example, append hydra/job_logging=disabled
+      to command line)
+
+
+      $HYDRA_CONFIG_GROUPS
+
+
+      Use ''--cfg hydra'' to Show the Hydra config.
+
+      '
+    hydra_help: ???
+  hydra_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][HYDRA] %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+    root:
+      level: INFO
+      handlers:
+      - console
+    loggers:
+      logging_example:
+        level: DEBUG
+    disable_existing_loggers: false
+  job_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][%(name)s][%(levelname)s] - %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+      file:
+        class: logging.FileHandler
+        formatter: simple
+        filename: ${hydra.runtime.output_dir}/${hydra.job.name}.log
+    root:
+      level: INFO
+      handlers:
+      - console
+      - file
+    disable_existing_loggers: false
+  env: {}
+  mode: MULTIRUN
+  searchpath: []
+  callbacks: {}
+  output_subdir: .hydra
+  overrides:
+    hydra:
+    - hydra/launcher=joblib
+    - hydra.mode=MULTIRUN
+    task:
+    - name=mpc_rustypendulum_init_forgetting
+    - alg=mpc
+    - num_iters=200
+    - eval_frequency=5
+    - env=rusty_pendulum
+    - seed=range(5)
+    - load_initial_data=/tirl/experiments/mpc_pendulum_2024-04-24/23-38-55
+    - gp_forgetting=True
+    - max_points_removed=75
+  job:
+    name: ${name}
+    chdir: null
+    override_dirname: alg=mpc,env=rusty_pendulum,eval_frequency=5,gp_forgetting=True,load_initial_data=/tirl/experiments/mpc_pendulum_2024-04-24/23-38-55,max_points_removed=75,name=mpc_rustypendulum_init_forgetting,num_iters=200,seed=range(5)
+    id: ???
+    num: ???
+    config_name: config
+    env_set: {}
+    env_copy: []
+    config:
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        exclude_keys: []
+  runtime:
+    version: 1.2.0
+    version_base: '1.1'
+    cwd: /tirl
+    config_sources:
+    - path: hydra.conf
+      schema: pkg
+      provider: hydra
+    - path: /tirl/cfg
+      schema: file
+      provider: main
+    - path: ''
+      schema: structured
+      provider: schema
+    output_dir: ???
+    choices:
+      alg: mpc
+      env: rusty_pendulum
+      hydra/env: default
+      hydra/callbacks: null
+      hydra/job_logging: default
+      hydra/hydra_logging: default
+      hydra/hydra_help: default
+      hydra/help: default
+      hydra/sweeper: basic
+      hydra/launcher: joblib
+      hydra/output: default
+  verbose: false
+name: mpc_rustypendulum_init_forgetting
+num_eval_trials: 5
+eval_frequency: 5
+env:
+  teleport: true
+  normalize_env: true
+  sample_exe: false
+  gp:
+    periodic: false
+    opt_max_iter: 1000
+    ls:
+    - - 2.27
+      - 7.73
+      - 138.94
+    - - 0.84
+      - 288.15
+      - 11.05
+    alpha:
+    - 0.54
+    - 0.22
+    sigma: 0.01
+    period: 2.0
+  tf_precision: 64
+  name: rustypendulum-v0
+  mpc:
+    nsamps: 25
+    planning_horizon: 20
+    n_elites: 3
+    beta: 3
+    gamma: 1.25
+    xi: 0.3
+    num_iters: 3
+    actions_per_plan: 6
+  eigmpc:
+    nsamps: 25
+    planning_horizon: 15
+    n_elites: 3
+    beta: 3
+    gamma: 1.25
+    xi: 0.3
+    num_iters: 3
+    actions_per_plan: 1
+alg:
+  uncertainty_sampling: false
+  kgrl: false
+  kg_policy: false
+  pilco: false
+  gd_opt: false
+  eig: false
+  open_loop: false
+  choose_start_state: false
+  num_samples_mc: 1
+  num_s0_samps: 1
+  open_loop_mpc: false
+  sample_all_states: false
+  num_fs: 15
+  joint_eig: false
+  learn_reward: false
+  num_iters: 1000
+  use_acquisition: false
+  rollout_all: true
+  rollout_sampling: true
+  use_mpc: true
+mpc:
+  nsamps: ${env.mpc.nsamps}
+  planning_horizon: ${env.mpc.planning_horizon}
+  n_elites: ${env.mpc.n_elites}
+  beta: ${env.mpc.n_elites}
+  gamma: ${env.mpc.gamma}
+  xi: ${env.mpc.xi}
+  num_iters: ${env.mpc.num_iters}
+  actions_per_plan: ${env.mpc.actions_per_plan}
+eigmpc:
+  nsamps: ${env.eigmpc.nsamps}
+  planning_horizon: ${env.eigmpc.planning_horizon}
+  n_elites: ${env.eigmpc.n_elites}
+  beta: ${env.eigmpc.n_elites}
+  gamma: ${env.eigmpc.gamma}
+  xi: ${env.eigmpc.xi}
+  num_iters: ${env.eigmpc.num_iters}
+  actions_per_plan: ${env.eigmpc.actions_per_plan}
+test_mpc:
+  nsamps: ${env.mpc.nsamps}
+  planning_horizon: ${env.mpc.planning_horizon}
+  n_elites: ${env.mpc.n_elites}
+  beta: ${env.mpc.n_elites}
+  gamma: ${env.mpc.gamma}
+  xi: ${env.mpc.xi}
+  num_iters: ${env.mpc.num_iters}
+  actions_per_plan: ${env.mpc.actions_per_plan}
+  num_fs: 15
+num_iters: 200
+eval_bayes_policy: false
+seed: 13
+fixed_start_obs: false
+num_samples_mc: ${alg.num_samples_mc}
+num_init_data: 1
+test_set_size: 1000
+tf_eager: false
+tf_precision: ${env.tf_precision}
+n_paths: 15
+sample_exe: ${env.sample_exe}
+path_sampling_fraction: 0.8
+path_sampling_noise: 0.01
+sample_init_initially: false
+normalize_env: ${env.normalize_env}
+n_rand_acqopt: ${alg.n_rand_acqopt}
+crop_to_domain: true
+teleport: ${env.teleport}
+gp_fit_retries: 20
+fit_hypers: false
+eval_gp_hypers: false
+save_figures: false
+load_initial_data: /tirl/experiments/mpc_pendulum_2024-04-24/23-38-55
+gp_forgetting: true
+forgetting_gamma: 0.5
+forgetting_eta: 0.7
+anomaly_threshold: 5.0
+max_points_removed: 75
+max_removed_points_per_round: 100

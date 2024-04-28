@@ -1,0 +1,6 @@
+- name=mpc_pendulum
+- alg=mpc
+- num_iters=200
+- eval_frequency=5
+- env=pendulum
+- seed=0

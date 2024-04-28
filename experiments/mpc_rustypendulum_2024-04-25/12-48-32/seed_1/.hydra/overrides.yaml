@@ -1,0 +1,6 @@
+- name=mpc_rustypendulum
+- alg=mpc
+- num_iters=200
+- eval_frequency=5
+- env=rusty_pendulum
+- seed=1

@@ -1,0 +1,9 @@
+- name=mpc_rustypendulum_init_forgetting
+- alg=mpc
+- num_iters=200
+- eval_frequency=5
+- env=rusty_pendulum
+- seed=0
+- load_initial_data=/tirl/experiments/mpc_pendulum_2024-04-24/23-38-55
+- gp_forgetting=True
+- max_points_removed=100
